@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TestApp</string>
+
+    <string name="dueIn">Due in: %s min</string>
+    <string name="destination">Destination: %s</string>
+    <string name="stationNameLabel">Station: %s</string>
+    <string name="abbreviationLabel">Abbreviation: %s</string>
+    <string name="messageLabel">Message: %s</string>
+    <string name="reload">Reload</string>
+    <string name="noForecast">No tram forecast.\nPlease see message.</string>
+</resources>

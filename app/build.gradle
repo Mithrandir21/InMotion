@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: '../versions.gradle'
+
+android {
+    compileSdkVersion compileSdkToApiVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.example.testapp"
+        minSdkVersion minSdkToApiVersion
+        targetSdkVersion targetSdkToApiVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        lintOptions {
+            abortOnError false
+        }
+
+        androidExtensions {
+            experimental = true
+        }
+
+        dataBinding {
+            enabled = true
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation "androidx.appcompat:appcompat:$androidxAppcompat"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation "androidx.recyclerview:recyclerview:$androidxRecyclerview"
+
+    implementation "androidx.core:core-ktx:$androidxCore"
+
+    implementation "androidx.arch.core:core-runtime:$androidxArchCore"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$androidxTwo"
+    implementation "androidx.lifecycle:lifecycle-extensions:$androidxTwo"
+    kapt "androidx.lifecycle:lifecycle-compiler:$androidxTwo"
+    implementation "androidx.room:room-runtime:$androidxRoom"
+    implementation "androidx.room:room-rxjava2:$androidxRoom"
+    kapt "androidx.room:room-compiler:$androidxTwo"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$androidArch"
+    implementation "androidx.navigation:navigation-ui-ktx:$androidArch"
+
+    implementation "com.google.dagger:dagger:$dagger2"
+    implementation "com.google.dagger:dagger-android:$dagger2"
+    implementation "com.google.dagger:dagger-android-support:$dagger2"
+    kapt "com.google.dagger:dagger-compiler:$dagger2"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid"
+
+    implementation 'com.tickaroo.tikxml:annotation:0.8.13'
+    implementation 'com.tickaroo.tikxml:core:0.8.13'
+
+    kapt 'com.tickaroo.tikxml:processor:0.8.13'
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    implementation 'com.tickaroo.tikxml:retrofit-converter:0.8.13'
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3Logging"
+
+    implementation "com.google.code.gson:gson:$gson"
+
+    testImplementation "junit:junit:$junit"
+    testImplementation "androidx.arch.core:core-testing:$androidxTest"
+    testImplementation "org.mockito:mockito-core:$mockitoInline"
+    testImplementation "org.mockito:mockito-inline:$mockitoInline"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin"
+}
