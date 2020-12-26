@@ -13,12 +13,5 @@ class FallbackAdapterDelegate : BaseAdapterDelegate<Any, BaseViewHolder<ListItem
     override fun bindViewHolder(item: Any, holder: BaseViewHolder<ListItemFallbackItemLayoutBinding>) = Unit
 
     override fun createViewHolder(parent: ViewGroup): BaseViewHolder<ListItemFallbackItemLayoutBinding> =
-        BaseViewHolder(
-            DataBindingUtil.inflate(
-                LayoutInflater.from(parent.context),
-                R.layout.list_item_fallback_item_layout,
-                parent,
-                false
-            )
-        )
+        BaseViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.list_item_fallback_item_layout, parent, false))
 }

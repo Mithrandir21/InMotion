@@ -24,7 +24,6 @@ class RetrofitProvider @Inject constructor() {
         Retrofit.Builder()
             .baseUrl("http://luasforecasts.rpa.ie/")
             .client(createHttpClient())
-            //.addConverterFactory(JaxbConverterFactory.create())
             .addConverterFactory(TikXmlConverterFactory.create(TikXml.Builder().exceptionOnUnreadXml(false).build()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

@@ -14,10 +14,10 @@ class TramDirectionConverters: TypeConverter<TramDirection> {
 class DirectionsConverters {
 
     @androidx.room.TypeConverter
-    fun directionsList(obj: List<Direction>): String? = Gson().toJson(obj)
+    fun toString(obj: List<Direction>): String? = Gson().toJson(obj)
 
     @androidx.room.TypeConverter
-    fun directionsValueList(string: String?): List<Direction> = Gson().fromJson(string, object : TypeToken<List<Direction>>() {}.type)
+    fun toList(string: String?): List<Direction> = Gson().fromJson(string, object : TypeToken<List<Direction>>() {}.type)
 }
 
 class TramConverters {

@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), TramSelectedListener, BaseAdapterListe
     }
 
     override fun onForecastClicked(tram: Tram) {
-        Toast.makeText(this, "${tram.dueMins} clicked", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "${tram.dueMins} min Forecast clicked", Toast.LENGTH_SHORT).show()
     }
 
     override fun listEmptied() {
